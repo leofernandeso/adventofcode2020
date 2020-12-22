@@ -1,5 +1,4 @@
 import sys
-from collections import Counter
 
 def parse_input():
 
@@ -19,9 +18,8 @@ def parse_input():
 cases = parse_input()
 valid_passwords_count = 0
 for interval, letter, password in cases:
-    counts = Counter(password)
-    if counts[letter] <= interval[1] and counts[letter] >= interval[0]:
+    count = password.count(letter)
+    if count <= interval[1] and count >= interval[0]:
         valid_passwords_count += 1
 
 print(valid_passwords_count)
-    
