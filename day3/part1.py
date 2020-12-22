@@ -12,13 +12,12 @@ slope_i, slope_j = (1, 3)
 i = 1
 j = 1
 tree_count = 0
-while i <= nrows:
 
+while i <= nrows:
     j = j % ncols
     if path[i-1][j-1] == '#': 
         # found a tree
         tree_count += 1
-
     # move
     i += slope_i
     j += slope_j

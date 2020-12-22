@@ -8,19 +8,21 @@ def parse_input():
     return path
 
 def count_trees(path, slope):
+    
+    # Init
     nrows, ncols = len(path), len(path[0])
     slope_i, slope_j = slope
     i = 0
     j = 0
     tree_count = 0
+
+    # Counting trees
     while (i < nrows):
         j = j % ncols
-
         if path[i][j] == '#': 
-            # found a tree
-            tree_count += 1
+            tree_count += 1     # Found tree
 
-        # move
+        # Moving
         i += slope_i
         j += slope_j
 
