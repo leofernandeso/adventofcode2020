@@ -20,20 +20,14 @@ def parse_input():
     passports.append(parse_passport(content))
     return passports
 
-
-
-
-def check_valid(passport):
-    pass
-
-required_fields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid']
+required_fields = {'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid'}
 optional = 'cid'
 
 passports = parse_input()
 valid_count = 0
 for passport in passports:
     fields = passport.keys()
-    missing_count = len(set(required_fields).difference(set(fields)))
+    missing_count = len(required_fields.difference(set(fields)))
     if missing_count == 0 or (missing_count == 1 and optional not in fields):
         valid_count += 1
 
